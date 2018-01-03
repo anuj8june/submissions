@@ -14,4 +14,4 @@ while exceed < days:
 	exceed += 7
 	count += 1
 
-print(count)
+print("Number of days between 1st Jan 1990 to 31st Dec 2000: {0}".format(count))
