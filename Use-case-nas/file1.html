@@ -16,19 +16,19 @@
 </head>
 
 <body>
-<h1>Q1 What influences students performance the most?</h1>
+<h2>Q1. What influences students performance the most?</h2>
 <div id="outerWrapper">
-  <canvas id="chart1" width="2200" height="300"></canvas>
+  <canvas id="chart1" width="1000" height="300"></canvas>
 </div>
 <script>
 $( document ).ready(function() {
   var theChart = document.getElementById('chart1');
-  var chartHeight = 300;
-  var theWidth = 50;
-  var theSpace = 100;
-  var theX = 0;
-  var theY = 0;
-  var theFills = ['orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green'];
+  var chartHeight = 550;
+  var theWidth = 20;
+  var theSpace = 40;
+  var theX = 10;
+  var theY = 10;
+  var theFills = ['#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600'];
   var i = 0;
   
   if (theChart.getContext){
@@ -36,19 +36,32 @@ $( document ).ready(function() {
     $.getJSON("data1.json", function(data) {
       $.each(data,function (k,v) {
         var theparam = k;
-        var thedata = v*2.5;
+        var thedata = v*5;
         theY = chartHeight - thedata;
         theX = theX + theSpace;
         theContext.fillStyle = theFills[i];
         theContext.fillRect(theX,theY,theWidth,thedata);
-        theContext.fillStyle = 'black';
-        theContext.font = '9pt Arial';
-        theContext.fillText(theparam,theX, theY-20);
+        theContext.fillStyle = '#000000';
+        theContext.font = '7pt Arial';
+        theContext.fillText(theparam,theX, theY-10,100);
         ++i;
       });
     });
   }
 });
 </script>
+</body>
+
+<p>Fig. Top 20 factors that contribute the most to student's overall perfomance positively</p>
+<p>
+The top 20 factors that influences students the most is arranged in descending order. To find this relation first the data was cleaned and all the columns that did not add any information were removed.
+<br>
+This kind of graph was obtained by first finding the average of scores of individual students. Instead of using Maths, Reading, Science, and Social score columns individually this average of scores give a better picture of overall performance.
+</p>
+
+<p>
+Then the correlation between all the columns and average scores was found. The columns with highest correlations were arranged in descending order. The top 20 correlations were selected  which affected students performance positively. Then all the top 20 columns were normalized on the basis of highest value ie 'Father edu' and then output to JSON file which is used here to generate this plot.
+</p>
+
 </body>
 </html>

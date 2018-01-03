@@ -23,26 +23,37 @@
 </head>
 
 <body>
-<h1>Q3 Do students from South Indian states really excel at Math and Science?</h1>
+<h2>Q3. Do students from South Indian states really excel at Math and Science?</h2>
+
 <div id="outerWrapper">
-  <canvas id="chart1" width="3500" height="300"></canvas>
+  <canvas id="chart1" width="1500" height="300"></canvas>
   <p>Fig.Data for maths</p>
 </div>
 
+<p>Average scores for Maths across all the states is plotted against each other. Contrary to the assumption that South Indian states perform better in maths is not supported by the data. </p>
+</div>
+<br>
+<p>
+  But making a conclusion of this sort that South Indian or North India states perform better in some subjects might be biased as these datas are not normalized to single scale.
+</p>
+<br>
+
 <div id="lowerWrapper">
-  <canvas id="chart2" width="3500" height="300"></canvas>
+  <canvas id="chart2" width="1500" height="300"></canvas>
   <p>Fig.Data for science</p>
+
+<p>Mean scores for Science across all the states is plotted against each other. Even on these the four major South India states haven't got higher scores than some of the  other states. </p>
 </div>
 
 <script>
 $( document ).ready(function() {
   var theChart = document.getElementById('chart1');
   var chartHeight = 300;
-  var theWidth = 50;
-  var theSpace = 100;
+  var theWidth = 20;
+  var theSpace = 40;
   var theX = 0;
   var theY = 0;
-  var theFills = ['orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange'];
+  var theFills = ['#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600'];
   var i = 0;
   
   if (theChart.getContext){
@@ -56,8 +67,8 @@ $( document ).ready(function() {
         theContext.fillStyle = theFills[i];
         theContext.fillRect(theX,theY,theWidth,thedata);
         theContext.fillStyle = 'black';
-        theContext.font = '9pt Arial';
-        theContext.fillText(theparam,theX, theY-20);
+        theContext.font = '7pt Arial';
+        theContext.fillText(theparam,theX-5, theY-10,50);
         ++i;
       });
     });
@@ -71,11 +82,11 @@ $( document ).ready(function() {
 $( document ).ready(function() {
   var theChart = document.getElementById('chart2');
   var chartHeight = 300;
-  var theWidth = 50;
-  var theSpace = 100;
+  var theWidth = 20;
+  var theSpace = 40;
   var theX = 0;
   var theY = 0;
-  var theFills = ['orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange'];
+  var theFills = ['#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600','#4CAF50','#2196F3','#ff9800','#f44336','#ff66ff','#cc9900','#00ccff','#cc6600'];
   var i = 0;
   
   if (theChart.getContext){
@@ -89,8 +100,8 @@ $( document ).ready(function() {
         theContext.fillStyle = theFills[i];
         theContext.fillRect(theX,theY,theWidth,thedata);
         theContext.fillStyle = 'black';
-        theContext.font = '9pt Arial';
-        theContext.fillText(theparam,theX, theY-20);
+        theContext.font = '7pt Arial';
+        theContext.fillText(theparam,theX-5, theY-10,50);
         ++i;
       });
     });
