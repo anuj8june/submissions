@@ -6,8 +6,10 @@
 <script src="jquery-latest.js"></script>
 <style>
   #outerWrapper {
-    width: 800px;  
-    margin: 1em auto;
+    {
+    display: block;
+    margin: 0 auto;
+}
   }
   canvas {
     border: 1px solid #000;  
@@ -18,12 +20,12 @@
 <body>
 <h2>Q1. What influences students performance the most?</h2>
 <div id="outerWrapper">
-  <canvas id="chart1" width="1000" height="300"></canvas>
+  <canvas id="chart1" width="1200" height="300"></canvas>
 </div>
 <script>
 $( document ).ready(function() {
   var theChart = document.getElementById('chart1');
-  var chartHeight = 550;
+  var chartHeight = 600;
   var theWidth = 20;
   var theSpace = 40;
   var theX = 10;
@@ -36,14 +38,14 @@ $( document ).ready(function() {
     $.getJSON("data1.json", function(data) {
       $.each(data,function (k,v) {
         var theparam = k;
-        var thedata = v*5;
+        var thedata = v*5.5;
         theY = chartHeight - thedata;
         theX = theX + theSpace;
         theContext.fillStyle = theFills[i];
         theContext.fillRect(theX,theY,theWidth,thedata);
         theContext.fillStyle = '#000000';
         theContext.font = '7pt Arial';
-        theContext.fillText(theparam,theX, theY-10,100);
+        theContext.fillText(theparam,theX-15, theY-15,100);
         ++i;
       });
     });
