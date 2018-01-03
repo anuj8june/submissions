@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NAS Question 3</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style>
+  #outerWrapper {
+    width: 800px;  
+    margin: 1em auto;
+  }
+  canvas {
+    border: 1px solid #000;  
+  }
+  #lowerWrapper {
+    width: 800px;  
+    margin: 1em auto;
+  }
+  canvas {
+    border: 1px solid #000;  
+  }
+</style>
+</head>
+
+<body>
+<h1>Q3 Do students from South Indian states really excel at Math and Science?</h1>
+<div id="outerWrapper">
+  <canvas id="chart1" width="3500" height="300"></canvas>
+  <p>Fig.Data for maths</p>
+</div>
+
+<div id="lowerWrapper">
+  <canvas id="chart2" width="3500" height="300"></canvas>
+  <p>Fig.Data for science</p>
+</div>
+
+<script>
+$( document ).ready(function() {
+  var theChart = document.getElementById('chart1');
+  var chartHeight = 300;
+  var theWidth = 50;
+  var theSpace = 100;
+  var theX = 0;
+  var theY = 0;
+  var theFills = ['orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange'];
+  var i = 0;
+  
+  if (theChart.getContext){
+    var theContext = theChart.getContext('2d');
+    $.getJSON("data3m.json", function(data) {
+      $.each(data.Maths,function (k,v) {
+        var theparam = k;
+        var thedata = v*5;
+        theY = chartHeight - thedata;
+        theX = theX + theSpace;
+        theContext.fillStyle = theFills[i];
+        theContext.fillRect(theX,theY,theWidth,thedata);
+        theContext.fillStyle = 'black';
+        theContext.font = '9pt Arial';
+        theContext.fillText(theparam,theX, theY-20);
+        ++i;
+      });
+    });
+  }
+});
+
+
+</script>
+
+<script>
+$( document ).ready(function() {
+  var theChart = document.getElementById('chart2');
+  var chartHeight = 300;
+  var theWidth = 50;
+  var theSpace = 100;
+  var theX = 0;
+  var theY = 0;
+  var theFills = ['orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange','blue','red','green','orange'];
+  var i = 0;
+  
+  if (theChart.getContext){
+    var theContext = theChart.getContext('2d');
+    $.getJSON("data3s.json", function(data) {
+      $.each(data.Science,function (k,v) {
+        var theparam = k;
+        var thedata = v*5;
+        theY = chartHeight - thedata;
+        theX = theX + theSpace;
+        theContext.fillStyle = theFills[i];
+        theContext.fillRect(theX,theY,theWidth,thedata);
+        theContext.fillStyle = 'black';
+        theContext.font = '9pt Arial';
+        theContext.fillText(theparam,theX, theY-20);
+        ++i;
+      });
+    });
+  }
+});
+
+
+</script>
+</body>
+</html>
