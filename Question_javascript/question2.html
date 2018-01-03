@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Removing all zeroes:</p>
+<p id="first"></p>
+
+<script>
+var data = [0, 1, 2, 'stop', 2, 0, 1, 'stop']
+function myFunction(array_1,value) {     
+     for(var i = 0; i < array_1.length; i++) {
+        if(array_1[i] == value) {
+            array_1.splice(i, 1);
+    }
+  }
+  return array_1;
+}
+document.getElementById("first").innerHTML = myFunction(data,0);
+</script>
+
+</body>
+</html>
